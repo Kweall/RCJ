@@ -3,14 +3,15 @@ from pathlib import Path
 import numpy as np
 import torch
 from tqdm import tqdm
-# Импорт из SuperGluePretrainedNetwork
-from models.matching import Matching
-from models.utils import frame2tensor
 
 def run_matching(seg_maps_dir: str = "./segmented_maps", keypoints_dir: str = "./keypoints", matches_dir: str = "./matches"):
     current_dir = Path(__file__).parent.resolve()
     superglue_path = current_dir / 'modules' / 'SuperGluePretrainedNetwork'
     sys.path.insert(0, str(superglue_path))
+
+    # Импорт из SuperGluePretrainedNetwork
+    from models.matching import Matching
+    from models.utils import frame2tensor
 
     seg_maps_dir = Path(seg_maps_dir)
     keypoints_dir = Path(keypoints_dir)
