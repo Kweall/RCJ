@@ -117,7 +117,7 @@ def build_point_cloud(
             
         if valid:
             seg_mask = np.isin(seg1, valid_seg_ids)
-            mask = (depth1 > MIN_DEPTH) & (depth1 < MAX_DEPTH * 0.9) & seg_mask
+            mask = mask & seg_mask
 
         mask = mask.astype(bool)
 
