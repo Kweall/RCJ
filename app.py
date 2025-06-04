@@ -6,6 +6,7 @@ import os
 import tempfile
 import shutil
 from main import run_video_cropping, run_segmentation, run_depth_estimation, run_keypoints, run_matching, build_point_cloud
+
 st.set_page_config(
     page_title="3D Облако Точек",
     layout="wide",

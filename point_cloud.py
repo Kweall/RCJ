@@ -1,3 +1,10 @@
+import os
+import numpy as np
+import cv2
+import open3d as o3d
+from glob import glob
+from tqdm import tqdm
+
 def build_point_cloud(
     frame_dir='./frames/',
     depth_dir='./depth_maps/',
@@ -10,13 +17,6 @@ def build_point_cloud(
     valid=False,
     valid_seg_ids=[1, 10, 12, 13, 140, 149]
 ):
-    import os
-    import numpy as np
-    import cv2
-    import open3d as o3d
-    from glob import glob
-    from tqdm import tqdm
-
     os.makedirs(output_dir, exist_ok=True)
     K = np.array([[fx, 0, cx], [0, fy, cy], [0, 0, 1]])
 
